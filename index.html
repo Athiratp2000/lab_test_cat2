@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="\assert\css\header_footer.css">
+            
+    <style >  
+   * body
+    {
+        box-sizing: border-box; 
+        background-color: rgb(34, 158, 158);       
+    } 
+   
+    .input {
+    width: 370px;
+    font-size: medium;
+    border-radius: 5px;
+    box-sizing: border-box;
+    
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: 1px solid #ccc;
+    background-color:white;
+    color: black;
+    padding: 10px;
+}
+button{
+    margin-left: 32%;
+    align-content: center;
+    width: 100px;
+    box-sizing: border-box;
+    padding: 10px;
+    background-color: #6e60f0;    
+    border: none;
+    border-radius: 5px;
+    color: white;
+}
+nav a{
+    text-decoration: none;        
+    color: #0b3f64;
+    padding: 25px;
+    display: inline-block;
+     }
+button:hover{
+    cursor: pointer;
+    background-color: rgb(212, 209, 20);
+
+}
+    .login_container  
+    {
+        
+        margin-top: 50px;             
+        position:absolute;
+        border-radius: 10px;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -20%);
+        opacity: 0.9;
+        box-sizing: content-box; 
+        min-height: 850px;
+        height: auto;
+        width: 500px;
+        padding:0px;
+    }
+    .login_box{
+        padding-top: 60px;
+        color:white;         
+        font-size: 20px;
+        position:absolute;
+        top: 40%;
+        left: 20%;
+        transform: translate(-50%, -50%);
+    }
+       </style>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registeration</title>
+</head>
+<body>
+     <center><h1 >We heartly welcome you to our IT-FEST</h1></center>
+     <center><h1 >TECHNOVID 2022</h1></center>
+     <center><h1 >Starts from DEC 12 TO 13</h1></center>
+
+    <div style="padding-top: 20px;">
+       
+          <div class="login_container" > 
+              
+             <div class="login_box" style="box-sizing: border-box;margin-left: 30%;">    
+
+                <form  action="Login.html" onsubmit="return validation()"><br><br><br>
+                <label style="color: white;margin-left:40%;">Register</label>
+                <br><br>   
+                
+                <input class="input" type="text" id="name" placeholder="Name" onkeypress="return onlyAlphabets(event,this);" ><br><br>
+                <input class="input" type="email" id="useremail"  placeholder="Email" ><br><br>
+                <input class="input" type="text" id="course" placeholder="Course" ><br><br>
+                <input class="input" type="text" id="collegename" placeholder="CollegeName" ><br><br>
+                <input class="input" type="text" id="state" placeholder="State" ><br><br>
+                <input class="input" type="number" id="age" placeholder="Age" ><br><br>
+                <input  type="number" maxlength="10" id="phone" class="input" placeholder="Phone Number" ><br><br>             
+                <textarea class="input" type="address" id="address" rows="2" cols="50" name="text" placeholder="Address"></textarea><br><br>
+                <input class="input" type="text" id="username" placeholder="User Name" ><br><br>
+                <input class="input" type="password" id="psw"  placeholder="Password" ><valid style="font-size: 15px;"></valid><br><br><br>
+                <button style="margin-left:35%" title="Submit" >Register</button><br><br>
+            </form>
+             </div>    
+           </div> 
+                        
+    </div>
+       
+</body>
+</html>
+
+<script>
+    var mname=document.getElementById('name');
+    var memail=document.getElementById('useremail');    
+    var mcourse=document.getElementById('course');
+    var mcollege=document.getElementById('collegename');
+    var mstate=document.getElementById('state');
+    var mage=document.getElementById('age');
+    var mnumber=document.getElementById('phone');
+    var maddress=document.getElementById('address');
+    var number=document.getElementById('username');    
+    var mpassword=document.getElementById('psw');
+    var pvalid=document.getElementsByTagName('valid');
+
+    function onlyAlphabets(e, t) {
+            try {
+                if (window.event) {
+                    var charCode = window.event.keyCode;
+                }
+                else if (e) {
+                    var charCode = e.which;
+                }
+                else { return true; }
+                if ((charCode > 64 && charCode < 91) || (charCode > 96 && charCode < 123))
+                    return true;
+                else
+                    return false;
+            }
+            catch (err) {
+                alert(err.Description);
+            }
+        }
+
+    function validation()
+    {
+        
+        if (mname.value==""){
+            mname.style.border="solid 2px red";
+            return false;
+        }
+
+        if (memail.value==""){
+            memail.style.border="solid 2px red";
+            return false;
+        }
+        if (mcourse.value==""){
+            mcourse.style.border="solid 2px red";
+            return false;
+        }
+
+        if (mcollege.value==""){
+            mcollege.style.border="solid 2px red";
+            return false;
+        }
+        if (mstate.value==""){
+            mstate.style.border="solid 2px red";
+            return false;
+        }
+        if (mage.value==""){
+            mage.style.border="solid 2px red";
+            return false;
+        }
+        if (number.value==""){
+            number.style.border="solid 2px red";
+            return false;
+        }
+        if (maddress.value=="" ){
+            maddress.style.border="solid 2px red";
+            return false;
+        }
+        if (mpassword.value==""){
+            mpassword.style.border="solid 2px red";
+            return false;
+        }
+        
+    }
+
+    mnumber.onkeydown=function()
+    {
+       const validphone=/^[0-9]{9}$/;
+      
+       if(validphone.test(mnumber.value))
+       {
+        mnumber.style.border="solid 1px white"; 
+       }
+       else{
+        mnumber.style.border="solid 2px red";
+       }
+    }
+
+    mage.onkeydown=function(){        
+        if(age.value == 0)
+       {
+        mage.style.border="solid 1px white";
+       }
+       else{
+        mage.style.border="solid 2px red";
+       }
+    }
+   
+    mname.onkeydown=function(){
+        const nameregex=/^([a-zA-z]{5,12})$/;
+        if(nameregex.test(mname.value))
+       {
+        mname.style.border="solid 1px white";
+       }
+       else{
+        mname.style.border="solid 2px red";
+       }
+    }
+
+    memail.onkeydown=function()
+    {
+       const validemail=/^([a-z0-9\.-]+)@(christuniversity)\.([a-z]{1,3})$/;
+      
+       if(validemail.test(memail.value))
+       {
+        memail.style.border="solid 1px white"; 
+       }
+       else{
+        memail.style.border="solid 2px red";
+       }
+    }
+    
+    
+    mpassword.onkeyup=function(){
+        const validpsw=/^(?=.*\d)(?=.*[a-z])(?=.*[@$!%*?&])(?=.*[A-Z]).{8,}$/;
+        if(validpsw.test(mpassword.value))
+       {
+        pvalid[0].style.display="none"; 
+        mpassword.style.border="solid 1px white"; 
+       }
+       else{
+        mpassword.style.border="solid 2px red";
+        var upperCaseLetters = /[A-Z]/g;
+        if(mpassword.value.match(upperCaseLetters)) {          
+        } else {
+            pvalid[0].innerText="Aleast 1 UpperCase";
+            pvalid[0].style.color="red";
+           
+        }
+        var lowerCaseLetters = /[a-z]/g;
+        if(mpassword.value.match(lowerCaseLetters)) {          
+        } else {
+            pvalid[0].innerText="Aleast 1 lowerCase";
+            pvalid[0].style.color="red";
+           
+        }
+        var numbers = /[0-9]/g;
+        if(mpassword.value.match(numbers)) {  
+        } else {
+            pvalid[0].innerText="Aleast 1 Digit";
+            pvalid[0].style.color="red";
+        }
+
+        var numbers = /[@$!%*?&]/g;
+        if(mpassword.value.match(numbers)) {  
+        } else {
+            pvalid[0].innerText="Aleast 1 Special character";
+            pvalid[0].style.color="red";
+        }     
+        if(mpassword.value.length>=8) {  
+        } else {
+            pvalid[0].innerText="Minimum 8 characters";
+            pvalid[0].style.color="red";
+        }
+       }
+    }       
+</script>
